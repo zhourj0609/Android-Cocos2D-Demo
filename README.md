@@ -1,2 +1,9 @@
 # Android-Cocos2D-Demo
-引用 cocos2d - Android 版本实现强交互性应用的GLSufaceView动画
+
+### Demo Note
+Demo for Android-cocos2d 
+
+[source address ](https://code.google.com/archive/p/cocos2d-android/source/default/source)
+
+
+
