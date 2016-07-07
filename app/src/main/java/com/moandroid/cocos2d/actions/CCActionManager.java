@@ -127,19 +127,28 @@ public class CCActionManager {
 //    	if(_purged) return;
     	Iterator<Entry<CCNode,ArrayList<CCAction>>> it = actionsMap.entrySet().iterator();
     	Map.Entry<CCNode,ArrayList<CCAction>> entry = null;
+
     	if(it.hasNext())
-    		entry = it.next();
-		while(entry!=null){
+			entry = it.next();
+		while(entry != null){
 			CCNode key = entry.getKey();
 			if(key.isRunning()){
 				ArrayList<CCAction> list = entry.getValue();
-				for(int i = 0; i<list.size(); ++i){
+//				for(int i = 0; i<list.size(); ++i) {
+//					CCAction action = list.get(i);
+//					action.step(dt);
+//					if(action.isDone()){
+//						action.stop();
+//						list.remove(i);
+//						--i;
+//					}
+//				}
+				for (int i=list.size()-1; i >=0; i--){
 					CCAction action = list.get(i);
 					action.step(dt);
 					if(action.isDone()){
 						action.stop();
 						list.remove(i);
-						--i;
 					}
 				}
 				if(it.hasNext())

@@ -36,7 +36,6 @@ public class CCScaleTo extends CCIntervalAction {
 	        return new CCScaleTo(_duration, _endScaleX, _endScaleY);
 	    }
 
-
 	    @Override
 	    public void start(CCNode aTarget) {
 	        super.start(aTarget);
@@ -51,4 +50,9 @@ public class CCScaleTo extends CCIntervalAction {
 	        _target.setScaleX(_startScaleX + _deltaX * t);
 	        _target.setScaleY(_startScaleY + _deltaY * t);
 	    }
+
+	@Override
+	public CCIntervalAction reverse() {
+		return CCScaleTo.action(_duration,1f);
+	}
 }

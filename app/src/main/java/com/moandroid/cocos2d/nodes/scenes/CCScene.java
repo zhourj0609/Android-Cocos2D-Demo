@@ -6,7 +6,7 @@ import com.moandroid.cocos2d.nodes.CCGridBase;
 import com.moandroid.cocos2d.nodes.CCNode;
 
 
-public class CCScene extends CCNode{
+public class CCScene extends CCNode {
 
 	public static final String LOG_TAG = CCScene.class.getSimpleName();
 	
@@ -22,11 +22,11 @@ public class CCScene extends CCNode{
 		_grid = g;
 	}
 	
-	 public void visit(GL10 gl){
+	 public void visit(GL10 gl) {
     	if(_visible == false )//|| _cleanup == true)
     		return;
-    	gl.glPushMatrix();
-    	transform(gl);
+    	gl.glPushMatrix(); //在栈中保存当前的操作矩阵
+    	transform(gl);//变换当前场景的坐标系并进行操作
     	if(_children != null){
         	for(CCNode c : _children){
         		if(c.zOrder()<0)

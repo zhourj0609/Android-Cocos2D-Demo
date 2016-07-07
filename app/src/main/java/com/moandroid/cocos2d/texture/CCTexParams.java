@@ -1,6 +1,7 @@
 package com.moandroid.cocos2d.texture;
 
 public class CCTexParams {
+
     public int minFilter;
     public int magFilter;
     public int wrapS;

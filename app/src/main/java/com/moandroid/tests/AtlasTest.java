@@ -102,17 +102,17 @@ public class AtlasTest extends Activity {
 				addChild(l, 1);
 				l.setPosition(CCPoint.ccp(s.width/2, s.height - 80));
 			}
-			
+
 			CCMenuItemImage item1 = CCMenuItemImage.item("b1.png", "b2.png", this, "backCallBack");
 			CCMenuItemImage item2 = CCMenuItemImage.item("r1.png", "r2.png", this, "restartCallback");
 			CCMenuItemImage item3 = CCMenuItemImage.item("f1.png", "f2.png", this, "nextCallback");
-			
+
 			CCMenu menu = CCMenu.menu(item1, item2, item3);
 			menu.setPosition(CCPoint.zero());
 			item1.setPosition(CCPoint.ccp(s.width/2 - 100, 30));
 			item2.setPosition(CCPoint.ccp(s.width/2, 	   30));
 			item3.setPosition(CCPoint.ccp(s.width/2 + 100, 30));
-			
+
 			addChild(menu, 1);*/
 		}
 

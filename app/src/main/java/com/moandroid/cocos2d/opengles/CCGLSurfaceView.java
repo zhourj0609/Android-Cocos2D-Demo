@@ -58,7 +58,7 @@ public class CCGLSurfaceView extends GLSurfaceView
             mDispatcher.touchesEnded(event);
             break;
 		}
-		return true;
+		return false;
 	}
 
 	private CCDirector mDirector;

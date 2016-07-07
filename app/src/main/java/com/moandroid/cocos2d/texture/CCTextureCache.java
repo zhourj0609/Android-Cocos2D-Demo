@@ -56,7 +56,7 @@ public class CCTextureCache {
 	private HashMap<String, CCTexture2D> _textures;
 	
 	public CCTexture2D getTexture(String fileName) {
-		if(_textures.containsKey(fileName)){
+		if(_textures.containsKey(fileName)){// 先缓存中取
 			CCTexture2D tx = _textures.get(fileName);
 			++tx._count;
 			return tx;
@@ -70,7 +70,7 @@ public class CCTextureCache {
 		        //canvas.drawColor(0xFFFFFFFF);
 				CCTexture2D tx = new CCTexture2D(bmp);
 				++tx._count;
-				_textures.put(fileName, tx);
+				_textures.put(fileName, tx);//缓存
 				return tx;
 			} catch (IOException e) {
 				e.printStackTrace();
@@ -88,7 +88,7 @@ public class CCTextureCache {
 		_textures.put(tagID, tx);
 		return tx;	
 	}
-	
+
 	public CCTexture2D getTexture(String text, CCSize dimensions,
 			int alignment, String fontName, int fontSize){
 		String tagID = String.format("%d", System.currentTimeMillis());

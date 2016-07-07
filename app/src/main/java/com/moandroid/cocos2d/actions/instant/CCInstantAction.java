@@ -36,5 +36,4 @@ public class CCInstantAction extends CCFiniteTimeAction{
         return copy();
     }
 
-
 }

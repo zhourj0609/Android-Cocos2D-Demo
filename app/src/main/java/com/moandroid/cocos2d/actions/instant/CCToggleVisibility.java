@@ -14,5 +14,4 @@ public class CCToggleVisibility extends CCInstantAction {
         _target.setVisible(!_target.visible());
     }
 
-
 }

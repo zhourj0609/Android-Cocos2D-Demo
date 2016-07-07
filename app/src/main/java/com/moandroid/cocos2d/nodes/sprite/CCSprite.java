@@ -10,8 +10,8 @@ import com.moandroid.cocos2d.texture.CCTexture2D;
 import com.moandroid.cocos2d.texture.CCTextureCache;
 
 public class CCSprite extends CCTextureNode 
-					  implements CCNodeFrames
-{
+					  implements CCNodeFrames {
+
 	public static final String LOG_TAG = CCSprite.class.getSimpleName();
 	
 	public static CCSprite sprite(String fileName) {
@@ -21,13 +21,13 @@ public class CCSprite extends CCTextureNode
     public static CCSprite sprite(Bitmap image) {
         return new CCSprite(CCTextureCache.sharedTextureCache().getTexture(image));
     }
-    
+
 	protected CCSprite(CCTexture2D texture) {
 		setTexture(texture);
 	}
-		
+
 	private HashMap<String, CCAnimationProtocol> _animations;
-    private void allocAnimations() {
+	private void allocAnimations() {
         _animations = new HashMap<String, CCAnimationProtocol>(2);
     }
 
@@ -39,8 +39,8 @@ public class CCSprite extends CCTextureNode
 			setTexture(frame);
 			CCTextureCache.sharedTextureCache().retain(frame);
 		}
-	} 
-	
+	}
+
 	@Override
 	public boolean isFrameDisplayed(Object frame) {
 		return _texture == (CCTexture2D)frame;

@@ -44,6 +44,13 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".tests.AnimationTest">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"></action>
+                <category android:name="android.intent.category.TEST"></category>
+            </intent-filter>
+        </activity>
+
     </application>
     <uses-sdk android:minSdkVersion="4">
 
