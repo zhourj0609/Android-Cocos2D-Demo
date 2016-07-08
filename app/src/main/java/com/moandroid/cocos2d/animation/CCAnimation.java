@@ -62,7 +62,6 @@ public class CCAnimation implements CCAnimationProtocol {
 	    _name = n;
 	    _frames = new ArrayList<Object>();
 	    _delay = d;
-	
 	    if (images != null) {
 	        for (Bitmap bitmap : images) {
 	        	CCTexture2D tex = CCTextureCache.sharedTextureCache().getTexture(bitmap);

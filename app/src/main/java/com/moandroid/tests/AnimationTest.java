@@ -81,12 +81,13 @@ public class AnimationTest extends AnimationActivity implements View.OnClickList
     }
 
     private void handSendStartAnimation() {
-        new Thread(){
-            @Override
-            public void run() {
-                sendStartLayer.handSendStartAnimation();// 开始业务动画
-            }
-        }.start();
+        sendStartLayer.handSendStartAnimation();// 开始业务动画
+
+//        new Thread(){
+//            @Override
+//            public void run() {
+//            }
+//        }.start();
     }
 
     /**
@@ -98,7 +99,6 @@ public class AnimationTest extends AnimationActivity implements View.OnClickList
     }
 
     class SendStartAnimationLayer extends CCLayer {
-
 
         class CallFunObje{
             CCSprite star;
@@ -114,6 +114,7 @@ public class AnimationTest extends AnimationActivity implements View.OnClickList
             CCSprite start = CCSprite.sprite("stars/fx_star1.png");
             this.addChild(start);
             int [] postion = new int[2];
+
             btnSendStart.getLocationOnScreen(postion);
             CCSize size = CCDirector.sharedDirector().winSize();
             start.setAnchorPoint(CCPoint.ccp(0.5f,0.5f));
@@ -132,11 +133,11 @@ public class AnimationTest extends AnimationActivity implements View.OnClickList
 
             CCIntervalAction bezierForward = CCBezierBy.action(3, bezier);
 
-            //CCCallFunc remove = CCCallFunc.action(new CallFunObje(start),"remove");
+            CCCallFunc remove = CCCallFunc.action(new CallFunObje(start),"remove");
 
             //ScaleTo
             //start.setPosition(CCPoint.ccp(size.width/2,size.height/2));
-            CCIntervalAction actionTo = CCScaleTo.action(1.5f, 5f);
+            CCIntervalAction actionTo = CCScaleTo.action(1.5f, 3f);
             CCIntervalAction action1 = CCScaleTo.action(1.5f,1f);
             CCIntervalAction seq1 = (CCIntervalAction) CCSequence.actions(actionTo,action1);
 
@@ -144,7 +145,7 @@ public class AnimationTest extends AnimationActivity implements View.OnClickList
             // Scale
             CCSpawn spawn = (CCSpawn) CCSpawn.actions(bezierForward,seq1);
 
-            CCIntervalAction seqall = (CCIntervalAction)CCSequence.actions(spawn);
+            CCIntervalAction seqall = (CCIntervalAction)CCSequence.actions(spawn,remove);
             //CCAction rep = CCRepeatForever.action(spawn);
             start.runAction(seqall);
 

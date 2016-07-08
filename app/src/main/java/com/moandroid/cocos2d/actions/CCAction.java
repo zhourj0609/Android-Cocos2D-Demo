@@ -5,6 +5,7 @@ import android.util.Log;
 import com.moandroid.cocos2d.nodes.CCNode;
 
 public class CCAction {
+
 	public static final String LOG_TAG = CCAction.class.getSimpleName();
 	
 	public static final int INVALID_TAG = -1;
@@ -16,9 +17,9 @@ public class CCAction {
     public CCNode originalTarget() {
         return _originalTarget;
     }
+
     public void setOriginalTarget(CCNode node) {
     	_originalTarget = node;
-
     }
     
     protected CCNode _target;

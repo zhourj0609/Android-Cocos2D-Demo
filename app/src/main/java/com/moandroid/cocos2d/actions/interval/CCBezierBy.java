@@ -5,7 +5,6 @@ import com.moandroid.cocos2d.types.CCPoint;
 
 public class CCBezierBy extends CCIntervalAction {
 
-
 	public static CCBezierBy action(float t, CCBezierConfig c) {
         return new CCBezierBy(t, c);
     }

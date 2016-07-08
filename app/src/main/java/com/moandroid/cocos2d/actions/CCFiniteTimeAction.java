@@ -4,6 +4,7 @@ package com.moandroid.cocos2d.actions;
 import android.util.Log;
 
 public class CCFiniteTimeAction extends CCAction {
+
 	public static final String LOG_TAG = CCFiniteTimeAction.class.getSimpleName();
 	
 	public static CCFiniteTimeAction action(float d){

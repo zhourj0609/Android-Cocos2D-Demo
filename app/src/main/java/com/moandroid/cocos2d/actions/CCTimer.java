@@ -3,11 +3,10 @@ package com.moandroid.cocos2d.actions;
 import java.lang.reflect.Method;
 
 public class CCTimer {
-
-    private Object _target;
+    private Object _target;//
     private String _selector;
     private Method _invocation;
-    public float _interval;
+    public float _interval;// interval call time
     float _elapsed;
 
     public CCTimer(Object target, String selector) {
@@ -15,11 +14,10 @@ public class CCTimer {
     }
 
     public CCTimer(Object target, String selector, float seconds) {
+
         _target = target;
         _selector = selector;
-
         _interval = seconds;
-
         try {
             Class<?> cls = _target.getClass();
             _invocation = cls.getMethod(_selector, Float.TYPE);

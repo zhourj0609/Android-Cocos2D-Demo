@@ -2,8 +2,8 @@ package com.moandroid.cocos2d.actions;
 
 import com.moandroid.cocos2d.nodes.CCNode;
 
-
 public class CCRepeatForever extends CCAction {
+
 	   protected CCFiniteTimeAction _other;
 
 	    public static CCRepeatForever action(CCFiniteTimeAction action) {
@@ -28,8 +28,8 @@ public class CCRepeatForever extends CCAction {
 	    @Override
 	    public void step(float dt) {
 	        _other.step(dt);
-	        if (_other.isDone())
-	            _other.start(_target);
+			// repeat forever do this action
+	        if (_other.isDone()) _other.start(_target);
 	    }
 
 
