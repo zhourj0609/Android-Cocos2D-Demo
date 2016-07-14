@@ -1,34 +1,21 @@
 package com.moandroid.tests;
 
-import android.app.Activity;
-import android.graphics.Point;
+import android.graphics.Path;
 import android.os.Bundle;
-import android.transition.Scene;
-import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.moandroid.R;
-import com.moandroid.cocos2d.actions.CCAction;
-import com.moandroid.cocos2d.actions.CCFiniteTimeAction;
-import com.moandroid.cocos2d.actions.CCRepeatForever;
 import com.moandroid.cocos2d.actions.instant.CCCallFunc;
-import com.moandroid.cocos2d.actions.instant.CCHide;
-import com.moandroid.cocos2d.actions.instant.CCInstantAction;
-import com.moandroid.cocos2d.actions.instant.CCToggleVisibility;
 import com.moandroid.cocos2d.actions.interval.CCBezierBy;
 import com.moandroid.cocos2d.actions.interval.CCBezierConfig;
 import com.moandroid.cocos2d.actions.interval.CCIntervalAction;
-import com.moandroid.cocos2d.actions.interval.CCMoveBy;
-import com.moandroid.cocos2d.actions.interval.CCMoveTo;
-import com.moandroid.cocos2d.actions.interval.CCRepeat;
-import com.moandroid.cocos2d.actions.interval.CCScaleBy;
 import com.moandroid.cocos2d.actions.interval.CCScaleTo;
 import com.moandroid.cocos2d.actions.interval.CCSequence;
 import com.moandroid.cocos2d.actions.interval.CCSpawn;
+import com.moandroid.cocos2d.actions.interval.PathAnimation;
 import com.moandroid.cocos2d.nodes.CCLayer;
 import com.moandroid.cocos2d.nodes.scenes.CCScene;
 import com.moandroid.cocos2d.nodes.sprite.CCSprite;
@@ -147,7 +134,21 @@ public class AnimationTest extends AnimationActivity implements View.OnClickList
 
             CCIntervalAction seqall = (CCIntervalAction)CCSequence.actions(spawn,remove);
             //CCAction rep = CCRepeatForever.action(spawn);
-            start.runAction(seqall);
+
+            Path path = new Path();
+            path.moveTo(point.x , point.y);
+            path.cubicTo(point.x,point.y, point.x - 200, point.y + 200, point.x,point.y+400);
+            path.cubicTo(point.x,point.y+400,0,0,width()/2,height()/2);
+
+//            Path p = new Path();
+//            p.moveTo(mRandom.nextInt(mConfig.xRand2) + mConfig.xMinRand, y);
+//            p.cubicTo(mRandom.nextInt(mConfig.xRand2) + mConfig.xMinRand, y - factor, x, y2 + factor, x, y2);
+//            p.cubicTo(x, y2 - factor, x2, y3 + factor, x2, y3);
+
+            PathAnimation pathAnimation = PathAnimation.action(2f,path);
+            CCIntervalAction seqPath = (CCIntervalAction) CCSequence.actions(pathAnimation,remove);
+
+            start.runAction(seqPath);
 
             // ScaleBy
             //CCIntervalAction actionBy = CCScaleBy.action(2, 2.0f);

@@ -28,11 +28,11 @@ public class CCFiniteTimeAction extends CCAction {
 	}
 
     public CCFiniteTimeAction reverse() {
-        Log.w(LOG_TAG, "Override me");
+        Log.w(LOG_TAG, "Override me reverse ");
         return null;
     }
     
     public void update(float t){
-    	Log.w(LOG_TAG, "Override me");
+    	Log.w(LOG_TAG, "Override me update");
     }
 }

@@ -1,17 +1,16 @@
 package com.moandroid.cocos2d.actions;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Map.Entry;
+import com.moandroid.cocos2d.nodes.CCNode;
+import com.moandroid.cocos2d.renderers.CCScheduler;
 
 import junit.framework.Assert;
 
-import com.moandroid.cocos2d.nodes.CCNode;
-import com.moandroid.cocos2d.renderers.CCScheduler;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Map.Entry;
 
 public class CCActionManager {
 
@@ -191,13 +190,14 @@ public class CCActionManager {
             entry2 = it2.next();
             CCNode key = entry2.getKey();
             ArrayList<CCAction> removeValues = entry2.getValue();
-            if(actionsMap.containsKey(key)){
-                ArrayList<CCAction> orginValue = actionsMap.get(key);
-                for(int i=0; i<removeValues.size();i++){
-                    for(int j= orginValue.size()-1;j>=0; j--){
-                        if(removeValues.get(i).equals(orginValue.get(j))){
-                            orginValue.remove(j);
-                        }
+            if(!actionsMap.containsKey(key)){
+                continue;
+            }
+            ArrayList<CCAction> orginValue = actionsMap.get(key);
+            for(int i=0; i<removeValues.size();i++){
+                for(int j= orginValue.size()-1;j>=0; j--){
+                    if(removeValues.get(i).equals(orginValue.get(j))){
+                        orginValue.remove(j);
                     }
                 }
             }
